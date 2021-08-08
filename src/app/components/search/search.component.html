@@ -1,16 +1,16 @@
-<div class="card-body">
-  <form #f="ngForm" (ngSubmit)="search()" novalidate>
-    <div class="form-group">
-      <label for="nombre">Nombre Personaje</label>
-      <input type="text" name="nombre" id="nombre" class="form-control" [(ngModel)]="nombre" required>
-    </div>
-    <div class="form-group">
-      <button class="btn btn-success btn-block" [disabled]="!f.valid">Buscar</button>
-    </div>
-  </form>
-</div>
 <div class="container">
-  <p>{{resultado}}</p>
+  <div class="card-body">
+    <form #f="ngForm" (ngSubmit)="search()" novalidate class="row">
+      <div class="form-group col">
+        <label for="nombre">Nombre Personaje</label>
+        <input type="text" name="nombre" id="nombre" class="form-control" [(ngModel)]="nombre" required>
+      </div>
+      <div class="form-group col d-flex">
+        <button class="btn btn-success btn-block align-self-end" [disabled]="!f.valid">Buscar</button>
+      </div>
+    </form>
+  </div>
+  <p class="fs-2">{{resultado}}</p>
 </div>
 <div class="row">
   <div class="col" *ngFor="let hero of heroRes">
@@ -18,8 +18,9 @@
       <div class="card" style="width: 18rem;">
         <img src="{{hero.imagen}}" class="card-img-top" alt="{{hero.nombre}}">
         <div class="card-body">
-          <h5 class="card-title">{{hero.nombre}}</h5>
-          <button routerLinkActive="router-link-active" class="btn btn-outline-success" type="submit">Detalle</button>
+          <h5 class="card-title">{{hero.alias}}</h5>
+          <button routerLinkActive="router-link-active" class="btn btn-outline-success" type="submit"
+            (click)="agregar(hero)" value="1">Agregar al equipo</button>
         </div>
       </div>
     </div>

@@ -2,7 +2,6 @@
   <div class="card">
     <div class="card-header">
       <h3>Aun no se ha creado un equipo</h3>
-      <button (click)="search()">Prueba</button>
     </div>
     <div class="card-body">
       <div class="row justify-content-center">
@@ -13,7 +12,49 @@
   </div>
 </div>
 <div class="container" *ngIf="team.length > 0">
+
   <div class="row">
-    <app-hero *ngFor="let hero of team; let i = index" [heroAux]="hero" [index]="hero.id"></app-hero>
+    <div class="col-12">
+      <button class="btn btn-success btn-lg align-self-center mb-3 mt-3 me-3" routerLink="/hero/search">Agregar
+        Miembro</button>
+    </div>
+    <div class="col-12 card mb-1" style="background: #CADEFC;">
+      <div class="mt-1" *ngFor="let item of array">
+        <li><span class="fs-5 fw-bold">{{item}}</span></li>
+
+      </div>
+      <!-- <div class="progress mt-1">
+        <p>{{powerstats.strength}}</p>
+        <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+          aria-valuemax="100"></div>
+      </div>
+      <div class="progress mt-1">
+        <p>{{powerstats.speed}}</p>
+        <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0"
+          aria-valuemax="100"></div>
+      </div>
+      <div class="progress mt-1">
+        <p>{{powerstats.durability}}</p>
+        <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0"
+          aria-valuemax="100"></div>
+      </div>
+      <div class="progress mt-1">
+        <p>{{powerstats.power}}</p>
+        <div class="progress-bar bg-primary" role="progressbar" style="width: 100%" aria-valuenow="100"
+          aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div class="progress mt-1">
+        <p>{{powerstats.combat}}</p>
+        <div class="progress-bar bg-secondary" role="progressbar" style="width: 100%" aria-valuenow="100"
+          aria-valuemin="0" aria-valuemax="100"></div>
+      </div> -->
+    </div>
+
+  </div>
+
+</div>
+<div class="row m-1">
+  <div class="col-4" *ngFor="let hero of team; let i = index">
+    <app-hero [heroAux]="hero" [index]="hero.id" [powerstats]="powerstats" [team]="team"></app-hero>
   </div>
 </div>

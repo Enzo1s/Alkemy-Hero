@@ -14,15 +14,18 @@ export class HeroServiceService {
   constructor(httpClietne: HttpClient) {}
 
   public getById(id: number): Hero {
-    const hero = new Hero();
+    var hero;
     axios.get('/api/1723667144489691/' + id).then((h) => {
-      hero.id = h.data.id;
-      hero.alias = h.data.name;
-      hero.nombre = h.data.biography['full-name'];
-      hero.peso = h.data.appearance.height[0];
-      hero.altura = h.data.appearance.height[1];
-      hero.colorCabello = h.data.appearance['hair-color'];
-      hero.colorOjos = h.data.appearance['eye-color'];
+      hero = new Hero(
+        h.data.id,
+        h.data.name,
+        h.data.biography['full-name'],
+        h.data.powerstats,
+        h.data.image.url,
+        h.data.biography.alignment,
+        h.data.appearance,
+        h.data.work
+      );
     });
     return hero;
   }

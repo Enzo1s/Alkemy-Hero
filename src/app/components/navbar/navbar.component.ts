@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Hero } from 'src/app/model/Hero';
+import { TeamService } from 'src/app/services/team.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,8 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-  team = [];
-  constructor() {}
+  team: Array<Hero> = [];
+  constructor(private _teamService: TeamService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this._teamService.currentDataTeam$.subscribe((data) => {
+      if (data) {
+        this.team = data;
+      }
+    });
+  }
 }

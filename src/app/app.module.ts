@@ -12,6 +12,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { HeroSearchComponent } from './components/hero-search/hero-search.component';
 import { FormsModule } from '@angular/forms';
+import { TeamComponent } from './components/team/team.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     HeroComponent,
     HeroSearchComponent,
+    TeamComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

@@ -1,12 +1,9 @@
-<div class="card" style="width: 18rem;">
-  <!-- <img src="{{heroAux.imagen}}" class="card-img-top" alt="{{heroAux.nombre}}"> -->
-  <div class="card-body">
+<div class="container">
+  <div class="card" style="width: 14rem;">
+    <img src="{{heroAux.imagen}}" class="card-img-top" alt="{{heroAux.nombre}}">
     <h5 class="card-title">{{heroAux.nombre}}</h5>
     <p class="card-text">{{heroAux.alias}}</p>
-    <div class="d-flex">
-      <p class="price"> $ {{heroAux.altura}}</p>
-      <!-- <button routerLink="/productos/detalle/{{productoAux.id}}/{{productoAux.esInsumo}}"
-        routerLinkActive="router-link-active" class="btn btn-outline-success" type="submit">Detalle</button> -->
-    </div>
+    <button routerLinkActive="router-link-active" class="btn btn-outline-danger" type="submit"
+      (click)="eliminar(heroAux)" value="1">Eliminar del equipo</button>
   </div>
 </div>
